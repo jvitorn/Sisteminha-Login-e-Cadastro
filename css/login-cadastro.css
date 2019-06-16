@@ -1,0 +1,8 @@
+body{
+    background-color: #001A70;
+    background-image: linear-gradient(to right,#001A70, #949CD0);
+}
+.form-login{
+    background-color: #CBD3EB;
+    margin-top: 20vh;
+}
