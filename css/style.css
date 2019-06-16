@@ -1,7 +1,7 @@
 body{
     background-image: linear-gradient(to right,#001A70, #949CD0);
 }
-.form-login,.form-cadastro{
+.form-login,.form-cadastro,.home{
     background-color: #CBD3EB;
     margin-top: 20vh;
 }

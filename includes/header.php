@@ -1,10 +1,24 @@
 <!DOCTYPE html>
+<?php
+// Conexão
+require_once 'php_action/db_connect.php';
+
+// Sessão
+session_start();
+
+// Dados
+$id = $_SESSION['id_usuarios'];
+$sql = "SELECT * FROM tb_usuarios WHERE id_usuarios = '$id'";
+$resultado = mysqli_query($connect, $sql);
+$dados = mysqli_fetch_array($resultado);
+mysqli_close($connect);
+?>
 <html>
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Sisteminha</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/style.css">
@@ -18,18 +32,25 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarText">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Quem somos</a>
-                </li>
-            </ul>
             <ul class="navbar-nav ml-auto">
+                <?php
+                if(isset($_SESSION['logado'])):
+                ?>
+                <li class="nav-item">
+                    <a class="nav-link active" href="home.php">Olá <?php echo $dados['nm_usuarios']; ?></a>
+                </li>
+                <?php
+                else:
+                ?>
                 <li class="nav-item">
                     <a class="nav-link active" href="login.php">Entrar</a>
                 </li>
                 <li>
                     <a class="nav-link active " href="cadastro.php">Cadastrar</a>
                 </li>
+                <?php
+                endif;
+                ?>
             </ul>
         </div>
     </nav>
