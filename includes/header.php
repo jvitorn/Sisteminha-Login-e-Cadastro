@@ -7,11 +7,13 @@ require_once 'php_action/db_connect.php';
 session_start();
 
 // Dados
-$id = $_SESSION['id_usuarios'];
-$sql = "SELECT * FROM tb_usuarios WHERE id_usuarios = '$id'";
-$resultado = mysqli_query($connect, $sql);
-$dados = mysqli_fetch_array($resultado);
-mysqli_close($connect);
+if(isset($_SESSION['logado'])):
+    $id = $_SESSION['id_usuarios'];
+    $sql = "SELECT * FROM tb_usuarios WHERE id_usuarios = '$id'";
+    $resultado = mysqli_query($connect, $sql);
+    $dados = mysqli_fetch_array($resultado);
+    mysqli_close($connect);
+endif;
 ?>
 <html>
 
