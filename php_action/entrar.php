@@ -8,16 +8,17 @@ session_start();
 // Botão enviar
 if(isset($_POST['btn-entrar'])):
     $erros = array();
-    $login = mysqli_escape_string($connect, $_POST['login']);
-    $senha = mysqli_escape_string($connect, $_POST['senha']);
+    
+    $login = $connect->escape_string($connect,$_POST['login']);
+    $senha = $connect->escape_string($connect,$_POST['senha']);
 
     if(empty($login) or empty($senha)):
         header('Location: ../login.php');
     else:
         $sql = "SELECT em_usuarios FROM tb_usuarios WHERE em_usuarios = '$login'";
-        $resultado = mysqli_query($connect, $sql);
+        $resultado = $connect->query($connect, $sql);
         
-        if(mysqli_num_rows($resultado) > 0):
+        if($connect->num_rows($resultado) > 0):
             $senha = md5($senha);
             $sql = "SELECT * FROM tb_usuarios WHERE em_usuarios = '$login' AND pw_usuarios = '$senha'";
             $resultado = mysqli_query($connect, $sql);

@@ -2,11 +2,13 @@
 // Conexão com banco de dados
 $servername = "localhost";
 $username = "root";
-$password = "";
+$password = "usbw";
 $db_name = "sisteminha";
+$connect = new mysqli($servername,$username,$password);
+//checar erros
+if($connect->connect_error){
+    die('Conexão Falhou' . $connect->connect_error);
+}
+echo 'conexão com sucesso';
 
-$connect = mysqli_connect($servername, $username, $password, $db_name);
-
-if(mysqli_connect_error()):
-    echo "Falha na conexão: ".mysqli_connect_error();
-endif;
+?>
