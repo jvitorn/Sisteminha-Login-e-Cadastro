@@ -1,19 +1,8 @@
 <!DOCTYPE html>
 <?php
 // Conexão
-require_once 'php_action/db_connect.php';
+require_once 'php_action/functions.php';
 
-// Sessão
-session_start();
-
-// Dados
-if(isset($_SESSION['logado'])):
-    $id = $_SESSION['id_usuarios'];
-    $sql = "SELECT * FROM tb_usuarios WHERE id_usuarios = '$id'";
-    $resultado = mysqli_query($connect, $sql);
-    $dados = mysqli_fetch_array($resultado);
-    mysqli_close($connect);
-endif;
 ?>
 <html>
 

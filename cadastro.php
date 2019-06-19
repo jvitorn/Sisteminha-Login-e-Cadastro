@@ -33,11 +33,5 @@ include_once 'includes/header.php';
 </section>
 
 <?php
-// Footer
-include_once 'includes/javascript.php';
-?>
-
-<?php
-// Footer
 include_once 'includes/footer.php';
 ?>

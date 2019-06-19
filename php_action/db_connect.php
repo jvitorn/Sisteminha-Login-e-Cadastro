@@ -9,6 +9,4 @@ $connect = new mysqli($servername,$username,$password);
 if($connect->connect_error){
     die('Conexão Falhou' . $connect->connect_error);
 }
-echo 'conexão com sucesso';
-
 ?>

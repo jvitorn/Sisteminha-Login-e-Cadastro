@@ -1,10 +1,6 @@
 <?php
 // Header
 include_once 'includes/header.php';
-// Verificação
-if(!isset($_SESSION['logado'])):
-    header('Location: index.php');
-endif;
 ?>
 
 <section class="container">
@@ -22,11 +18,6 @@ endif;
         </div>
     </div>
 </section>
-
-<?php
-// Footer
-include_once 'includes/javascript.php';
-?>
 
 <?php
 // Footer
